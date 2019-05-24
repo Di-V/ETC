@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Scorpio</string>
+    <string name="crime_title">Crime</string>
+    <string name="crime_date">date</string>
+    <string name="enter_crime">description crime...</string>
+    <string name="date_picker_title">date</string>
+    <string name="delete_crime">Delete crime</string>
+</resources>
