@@ -4,11 +4,11 @@ import java.util.UUID;
 
 public class CrimeMedia {
     private UUID mId;
-    private String mPhoto;
+    private String mFileName;
 
     public CrimeMedia(UUID id) {
         mId = id;
-        mPhoto = "IMG_" + getId().toString() + "&" + UUID.randomUUID().toString() + ".jpg";
+        mFileName = "IMG_" + getId().toString() + "&" + UUID.randomUUID().toString() + ".jpg";
     }
 
     public UUID getId() {
@@ -19,11 +19,11 @@ public class CrimeMedia {
         mId = id;
     }
 
-    public String getPhoto() {
-        return mPhoto;
+    public String getFile() {
+        return mFileName;
     }
 
-    public void setPhoto(String photo) {
-        mPhoto = photo;
+    public void setFile(String file) {
+        mFileName = file;
     }
 }

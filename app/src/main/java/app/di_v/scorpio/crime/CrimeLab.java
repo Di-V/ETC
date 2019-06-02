@@ -107,6 +107,7 @@ public class CrimeLab {
         ContentValues values = new ContentValues();
         values.put(CrimeTable.Cols.UUID, crime.getId().toString());
         values.put(CrimeTable.Cols.TITLE, crime.getTitle());
+        values.put(CrimeTable.Cols.NUM, crime.getNumCrime());
         values.put(CrimeTable.Cols.DESCRIPTION, crime.getDescription());
         values.put(CrimeTable.Cols.DATE, crime.getDate().getTime());
 
@@ -123,7 +124,7 @@ public class CrimeLab {
 
     public File getMediaFile(CrimeMedia media) {
         File filesDir = mContext.getFilesDir();
-        return new File(filesDir, media.getPhoto());
+        return new File(filesDir, media.getFile());
     }
 
     public List<CrimeMedia> getMedia(UUID id) {
@@ -171,7 +172,7 @@ public class CrimeLab {
     private static ContentValues getContentMediaValues(CrimeMedia media) {
         ContentValues values = new ContentValues();
         values.put(CrimeMediaTable.Cols.UUID, media.getId().toString());
-        values.put(CrimeMediaTable.Cols.PHOTO, media.getPhoto());
+        values.put(CrimeMediaTable.Cols.PHOTO, media.getFile());
 
         return values;
     }
