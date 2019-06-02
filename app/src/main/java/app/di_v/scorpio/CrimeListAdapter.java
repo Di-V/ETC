@@ -44,7 +44,7 @@ public class CrimeListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
          final Crime crime = mCrime.get(position);
 
          TextView textView = cardView.findViewById(R.id.crime_title);
-         textView.setText(crime.getTitle());
+         textView.setText(crime.getTitle() + " № " + crime.getNumCrime());
 
          TextView dateView = cardView.findViewById(R.id.crime_date);
          dateView.setText(DateFormat.format("dd.MM",

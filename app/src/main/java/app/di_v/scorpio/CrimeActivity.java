@@ -50,11 +50,10 @@ public class CrimeActivity extends AppCompatActivity {
     private CrimeMedia mCrimeMedia;
     private File mPhotoFile;
     private EditText mTitleField;
+    private EditText mNumField;
     private EditText mDescriptionField;
     private Button mDateButton;
     private ImageButton mPhotoBtn;
-    private ImageButton mVideoBtn;
-    private ImageButton mAudioBtn;
 
 
     public static Intent newIntent(Context packageContext, UUID id) {
@@ -88,6 +87,27 @@ public class CrimeActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 mCrime.setTitle(s.toString());
+                CrimeLab.get(CrimeActivity.this).updateCrime(mCrime);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        // Number
+        mNumField = findViewById(R.id.crime_title_num);
+//        mNumField.setText(getString(mCrime.getNumCrime()));
+        mNumField.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                mCrime.setNumCrime(Integer.parseInt(s.toString()));
                 CrimeLab.get(CrimeActivity.this).updateCrime(mCrime);
             }
 
@@ -172,14 +192,6 @@ public class CrimeActivity extends AppCompatActivity {
                 startActivityForResult(captureImage, REQUEST_IMAGE_CAPTURE);
             }
         });
-
-       // Video btn
-        mVideoBtn = findViewById(R.id.add_crime_video);
-        mVideoBtn.setEnabled(false);
-
-        // Audio btn
-        mAudioBtn = findViewById(R.id.add_crime_audio);
-        mAudioBtn.setEnabled(false);
     }
 
     @Override

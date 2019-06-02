@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.io.File;
 import java.util.List;
@@ -44,11 +45,14 @@ public class CrimeMediaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
         final CardView cardView = ((CrimeMediaAdapter.CrimeHolder) holder).cardView;
         ImageView img = cardView.findViewById(R.id.crime_photo);
+        TextView imgName = cardView.findViewById(R.id.crime_photo_name);
+
+        imgName.setText(mCrimeMedia.get(position).getFile());
 
         File filesDir = cardView.getContext().getFilesDir();
         CrimeMedia photoName = mCrimeMedia.get(position);
 
-        Bitmap bitmap = BitmapFactory.decodeFile((new File(filesDir, photoName.getPhoto())).getPath());
+        Bitmap bitmap = BitmapFactory.decodeFile((new File(filesDir, photoName.getFile())).getPath());
         img.setImageBitmap(bitmap);
 
         cardView.setOnClickListener(new View.OnClickListener() {
